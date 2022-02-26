@@ -1,0 +1,56 @@
+{
+  "status": "ok",
+  "count": "1",
+  "video_markers": [
+    {
+      "video_id": "0",
+      "marker_time": "000000",
+      "augment_position": "0,0,0",
+      "url": "http://192.168.103.23:80/POC/C_wing_Entrance/C_wing_Entrance.mpd",
+      "count": "2",
+      "items": [
+        {
+          "id": "0",
+          "icon_url": "http://www.google.com",
+          "video_url": "http://192.168.103.23:80/POC/Left_Meeting_Hall/Left_Meeting_Hall.mpd",
+          "type": "leftarrow",
+          "position": "0,0,0",
+          "direction": "left"
+        },
+        {
+          "id": "1",
+          "icon_url": "http://www.google.com",
+          "video_url": "http://192.168.103.23:80/POC/Right_Towards_D_Wing/Right_Towards_D_Wing.mpd",
+          "type": "rightarrow",
+          "position": "0,0,0",
+          "direction": "right"
+        }
+      ]
+    },
+    {
+      "video_id": "1",
+      "marker_time": "000010",
+      "url": "http://www.google.com",
+      "augment_position": "0,0,0",
+      "count": "2",
+      "items": [
+        {
+          "id": "0",
+          "icon_url": "http://www.google.com",
+          "video_url": "http://www.google.com",
+          "type": "leftarrow",
+          "position": "0,0,0",
+          "direction": "left"
+        },
+        {
+          "id": "1",
+          "icon_url": "http://www.google.com",
+          "video_url": "http://www.google.com",
+          "type": "middlearrow",
+          "position": "0,0,0",
+          "direction": "left"
+        }
+      ]
+    }
+  ]
+}
