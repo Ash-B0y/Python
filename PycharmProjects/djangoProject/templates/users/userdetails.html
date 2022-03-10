@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="csrf_token" content="{{ csrf_token }}">
+    <meta charset="UTF-8">
+    <title>User Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<script type="text/javascript" src="{% static 'js/crudValidation.js' %}">
+</script>
+
+<body>
+<div class="content">
+<a href="{% url 'logout' %}">Logout?</a>
+</div>
+<br>
+<div align="center">
+<h1>List of Registered Users</h1>
+
+<br>
+<br>
+          <table border="1" cellpadding="5">
+              <tr>
+                  <th>S.No</th>
+                  <th>User Name</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>E-mail</th>
+                  <th>Registered Timestamp</th>
+                  <th>Action</th>
+              </tr>
+
+                  {% for user in users %}
+                  <tr>
+                      <td>{{user.id}}</td>
+                      <td>{{user.username}}</td>
+                      <td>{{user.first_name}}</td>
+                      <td>{{user.last_name}}</td>
+                      <td>{{user.email}}</td>
+                      <td>{{user.date_joined}}</td>
+                      <td><button type="button" onclick="javascript:updateUser('{{user.id}}','{{user.username}}','{{user.first_name}}','{{user.last_name}}','{{user.email}}');">Edit</button>/<button type="button" onclick="javascript:deleteUser({{user.pk}});">Delete</button></td>
+
+                  </tr>
+             {% endfor %}
+          </table>
+          </div>
+ <div class="form-popup" id="myForm">
+          <a class="close">&times;</a>
+          <form id="form" action="update/" method="post">
+              {% csrf_token %}
+ <center><h1>Update User</h1></center>
+        <!-- Details -->
+        <div class="form-control">
+        <input type="hidden" id="userId" name="userId">
+            <label for="name" id="label-name">
+                User Name:
+            </label>
+            <span id="userNameError"></span>
+            <br>
+            <!-- Input Type Text -->
+            <input type="text" id="userName" name="userName" placeholder="Key in your username"/>
+             <br>
+             <label for="firstname" id="label-firstname">
+                First Name:
+            </label>
+            <span id="firstNameError"></span>
+            <br>
+             <input type="text" id="firstName" name="firstName" placeholder="Key in your firstname"/>
+            <br>
+            <label for="lastname" id="label-lastname">
+                Last Name:
+            </label>
+            <span id="lastNameError"></span>
+            <br>
+            <input type="text" id="lastName" name="lastName" placeholder="Key in your lastname"/>
+            <br>
+            <label for="email" id="label-email">
+                E-mail:
+            </label>
+            <span id="emailError"></span>
+             <input type="email" id="emailId" name="emailId" placeholder="Key in your email"/>
+        </div>
+
+
+
+        <button type="button" style="background-color: #05c46b;border: 1px solid #777;border-radius: 2px;font-family: inherit;font-size: 21px;display: inline-block;width: 40%;margin-top: 50px;margin-bottom: 20px;" onclick="validateFields()" value="submit">
+            Update
+        </button>
+        <button type="button" style="background-color: #05c46b;border: 1px solid #777;border-radius: 2px;font-family: inherit;font-size: 21px;display: inline-block;width: 40%;margin-top: 50px;margin-bottom: 20px;" onclick="closeForm()" value="clear">
+            Cancel
+        </button>
+    </form>
+    </div>
+</body>
+</html>
